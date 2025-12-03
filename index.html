@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pikusoccer | Performance Sportswear</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Pikusoccer</div>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="filterProducts('all')">Início</a></li>
+                <li><a href="#produtos" onclick="filterProducts('masculino')">Masculino</a></li>
+                <li><a href="#produtos" onclick="filterProducts('feminino')">Feminino</a></li>
+                <li><a href="#produtos" onclick="filterProducts('futboll')">Futebol</a></li>
+            </ul>
+        </nav>
+        <button class="btn-login" onclick="openLogin()">Entrar</button>
+    </header>
+
+    <section class="hero">
+        <h1>Domine o Jogo</h1>
+        <p>A melhor tecnologia em calçados esportivos para você alcançar a máxima performance.</p>
+        <a href="#produtos" class="btn-cta">Ver Coleção</a>
+    </section>
+
+    <section id="produtos" class="container">
+        <h2 class="section-title">Nossos Modelos</h2>
+
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterProducts('all')">Todos</button>
+            <button class="filter-btn" onclick="filterProducts('masculino')">Masculino</button>
+            <button class="filter-btn" onclick="filterProducts('feminino')">Feminino</button>
+            <button class="filter-btn" onclick="filterProducts('futebol')">Futebol</button>
+        </div>
+    
+        <div class="products-grid">
+            <article class="product-card" data-category="masculino">
+                <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                    alt="Tênis Zoom Velocity" class="product-img">
+                <div class="product-info">
+                    <span class="category-tag">Masculino</span>
+                    <h3 class="product-title">Pikusoccer Velocity X</h3>
+                    <p class="product-desc">
+                        Ideal para maratonistas. Tecnologia de amortecimento em gel reativo e malha respirável.
+                    </p>
+                    <div class="product-price">R$ 499,90</div>
+                    <button class="btn-buy" onclick="addToCart('Velocity X')">Comprar Agora</button>
+                </div>
+            </article>
+
+            <article class="product-card" data-category="masculino">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                    alt="Tênis Court Master" class="product-img">
+                <div class="product-info">
+                    <span class="category-tag">Masculino</span>
+                    <h3 class="product-title">Court Master Pro</h3>
+                    <p class="product-desc">
+                        Domine as quadras. Solado antiderrapante com suporte reforçado no tornozelo.
+                    </p>
+                    <div class="product-price">R$ 649,90</div>
+                    <button class="btn-buy" onclick="addToCart('Court Master Pro')">Comprar Agora</button>
+                </div>
+            </article>
+
+            <article class="product-card" data-category="feminino">
+                <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                    alt="Tênis Urban Style" class="product-img">
+                <div class="product-info">
+                    <span class="category-tag">Feminino</span>
+                    <h3 class="product-title">Urban Piku Low</h3>
+                    <p class="product-desc">
+                        Estilo e conforto para o dia a dia. Design minimalista com acabamento em couro sintético.
+                    </p>
+                    <div class="product-price">R$ 299,90</div>
+                    <button class="btn-buy" onclick="addToCart('Urban Piku Low')">Comprar Agora</button>
+                </div>
+            </article>
+
+            <article class="product-card" data-category="feminino">
+                <img src="./chuteira.jpeg"
+                    alt="Tênis Yoga Flex" class="product-img">
+                <div class="product-info">
+                    <span class="category-tag">Feminino</span>
+                    <h3 class="product-title">Piku Yoga Flex</h3>
+                    <p class="product-desc">
+                        Leveza extrema. Sola super flexível ideal para treinos funcionais e yoga.
+                    </p>
+                    <div class="product-price">R$ 349,90</div>
+                    <button class="btn-buy" onclick="addToCart('Piku Yoga Flex')">Comprar Agora</button>
+                </div>
+            </article>
+
+            <article class="product-card" data-category="futebol">
+                <img src="./bola.jpeg"
+                    alt="bola" class="product-img">
+                <div class="product-info">
+                    <span class="category-tag">Futebol</span>
+                    <h3 class="product-title">Bola esportiva</h3>
+                    <p class="product-desc">
+                        Otima para profissionais.
+                    </p>
+                    <div class="product-price">R$ 80,90</div>
+                    <button class="btn-buy" onclick="addToCart('bola')">Comprar Agora</button>
+                </div>
+            </article>
+            <article class="product-card" data-category="futebol">
+                <img src="./bola2.jpeg"
+                    alt="bola" class="product-img">
+                <div class="product-info">
+                    <span class="category-tag">Futebol</span>
+                    <h3 class="product-title">Bola esportiva</h3>
+                    <p class="product-desc">
+                        Otima para profissionais.
+                    </p>
+                    <div class="product-price">R$ 80,90</div>
+                    <button class="btn-buy" onclick="addToCart('bola')">Comprar Agora</button>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Pikusoccer. Todos os direitos reservados.</p>
+            <p>Desenvolvido por: Maria Eduarda</p>
+            <p>Contate-nos no whastapp</p>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeLogin()">&times;</span>
+            <div class="login-form">
+                <h2>Acessar Conta</h2>
+                <form onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" placeholder="********" required>
+                    </div>
+                    <button type="submit" class="btn-buy">Entrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

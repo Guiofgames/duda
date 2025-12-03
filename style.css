@@ -1,0 +1,207 @@
+/* --- VARIÁVEIS E RESET --- */
+:root {
+    --primary: #6a0dad;      
+    --primary-dark: #4b0082; 
+    --accent: #9370db;       
+    --text: #333;
+    --bg-light: #f4f4f9;
+    --white: #ffffff;
+    --shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+body { background-color: var(--bg-light); color: var(--text); line-height: 1.6; }
+
+/* --- HEADER --- */
+header {
+    background-color: var(--white);
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo { font-size: 1.8rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
+
+nav ul { display: flex; list-style: none; gap: 2rem; }
+nav a { text-decoration: none; color: var(--text); font-weight: 500; transition: color 0.3s; cursor: pointer; }
+nav a:hover { color: var(--primary); }
+
+.btn-login {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
+    border: none;
+    cursor: pointer;
+}
+.btn-login:hover { background-color: var(--primary-dark); }
+
+.hero {
+    height: 70vh; /* Aumentei um pouco a altura para a imagem do banner */
+    /* Substituí o gradiente por uma única imagem com um filtro de cor */
+    background: 
+        url('./banner.png'); /* COLOQUE AQUI A URL DA IMAGEM GERADA ACIMA */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Adiciona um overlay sutil para escurecer a imagem e manter o texto legível */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    padding: 20px;
+}
+
+/* Pseudo-elemento para o overlay de cor sobre o banner */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(106, 13, 173, 0.5), rgba(75, 0, 130, 0.4)); /* Roxo com transparência */
+    z-index: 1; /* Garante que o overlay fique por cima da imagem */
+}
+
+/* Ajusta o z-index do conteúdo para que fique acima do overlay */
+.hero h1, .hero p, .btn-cta {
+    position: relative;
+    z-index: 2; /* Garante que o texto e o botão fiquem visíveis */
+}
+
+.hero h1 { 
+    font-size: 3.8rem; /* Aumentei o tamanho da fonte */
+    margin-bottom: 1rem; 
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Sombra para o texto */
+}
+
+.hero p { 
+    font-size: 1.3rem; /* Aumentei um pouco a fonte */
+    max-width: 700px; /* Aumentei a largura máxima */
+    margin-bottom: 2.5rem; /* Mais espaço para o botão */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Sombra para o texto */
+}
+
+.btn-cta { 
+    padding: 1.2rem 3rem; /* Aumentei o padding */
+    font-size: 1.1rem; /* Aumentei a fonte do botão */
+    border-radius: 8px; /* Mais arredondado */
+}
+.btn-cta { background-color: var(--white); color: var(--primary); padding: 1rem 2.5rem; border-radius: 5px; text-decoration: none; font-weight: bold; text-transform: uppercase; transition: transform 0.2s; }
+.btn-cta:hover { transform: scale(1.05); }
+
+/* --- FILTROS (NOVO) --- */
+.container { max-width: 1200px; margin: 0 auto; padding: 4rem 20px; }
+.section-title { text-align: center; font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 2rem; }
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 3rem;
+}
+
+.filter-btn {
+    padding: 10px 25px;
+    border: 2px solid var(--primary);
+    background: transparent;
+    color: var(--primary);
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+/* --- PRODUTOS --- */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.5s ease; /* Animação ao filtrar */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.product-card:hover { transform: translateY(-10px); }
+.product-img { width: 100%; height: 250px; object-fit: cover; background-color: #eee; }
+
+.product-info { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
+
+.category-tag {
+    font-size: 0.8rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.product-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+.product-desc { font-size: 0.9rem; color: #666; margin-bottom: 1rem; flex-grow: 1; }
+.product-price { font-size: 1.5rem; color: var(--primary); font-weight: 700; margin-bottom: 1rem; }
+
+.btn-buy { width: 100%; padding: 10px; background-color: var(--primary); color: white; border: none; border-radius: 5px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+.btn-buy:hover { background-color: var(--primary-dark); }
+
+/* --- MODAL --- */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: none; justify-content: center; align-items: center; z-index: 1000; backdrop-filter: blur(5px); }
+.modal-content { background: var(--white); padding: 2.5rem; border-radius: 15px; width: 90%; max-width: 400px; position: relative; animation: slideDown 0.3s ease; }
+@keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.close-btn { position: absolute; top: 15px; right: 20px; font-size: 1.5rem; cursor: pointer; color: #666; }
+.login-form h2 { text-align: center; color: var(--primary); margin-bottom: 1.5rem; }
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; margin-bottom: 5px; font-size: 0.9rem; color: #555; }
+.form-group input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; outline: none; }
+.form-group input:focus { border-color: var(--primary); }
+
+/* --- FOOTER & RESPONSIVO --- */
+footer { background-color: #222; color: #fff; text-align: center; padding: 2rem; margin-top: 4rem; }
+@media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } nav ul { display: none; } }
+/* --- FOOTER --- */
+footer {
+    background-color: var(--primary-dark); /* Roxo escuro para o fundo */
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    font-size: 0.9rem;
+}
+
+.footer-content p {
+    margin: 5px 0;
+}
+
+.footer-content p strong {
+    font-weight: 600;
+}
